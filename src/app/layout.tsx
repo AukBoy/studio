@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'TailorTrack',
-  description: 'Your Digital Tailoring Assistant',
+  title: 'Style Gallery',
+  description: 'Your Personal Style Companion',
 };
 
 export default function RootLayout({

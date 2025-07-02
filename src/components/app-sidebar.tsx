@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import { Home, UserPlus, LogOut, Ruler } from 'lucide-react';
+import { Home, UserPlus, LogOut, LayoutGrid } from 'lucide-react';
 import { Button } from './ui/button';
 import { usePathname } from 'next/navigation';
 import { logout } from '@/app/actions';
@@ -17,8 +17,8 @@ export function AppSidebar() {
   return (
     <aside className="hidden md:flex w-64 bg-card border-r flex-col shadow-md">
       <div className="p-6 border-b flex items-center gap-2">
-         <Ruler className="h-8 w-8 text-primary" />
-        <h1 className="text-2xl font-headline text-primary font-bold">TailorTrack</h1>
+         <LayoutGrid className="h-8 w-8 text-primary" />
+        <h1 className="text-2xl font-headline text-primary font-bold">Style Gallery</h1>
       </div>
       <nav className="flex-1 p-4 space-y-1">
         {navItems.map((item) => (
