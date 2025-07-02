@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const [isAuthenticated] = useLocalStorage('tailor-track-auth', false);
+  const [isAuthenticated] = useLocalStorage('tailor-track-session', false);
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
 

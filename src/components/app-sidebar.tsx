@@ -7,7 +7,7 @@ import { useLocalStorage } from '@/hooks/use-local-storage';
 import { useRouter, usePathname } from 'next/navigation';
 
 export function AppSidebar() {
-  const [, setAuthenticated] = useLocalStorage('tailor-track-auth', false);
+  const [, setAuthenticated] = useLocalStorage('tailor-track-session', false);
   const router = useRouter();
   const pathname = usePathname();
 
