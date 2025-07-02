@@ -7,16 +7,24 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { PlusCircle, User, Search, FileText, Phone, Users } from 'lucide-react';
+import { PlusCircle, User, Search, FileText, Phone, Users, LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function DashboardPage() {
   const [customers] = useLocalStorage<Customer[]>('customers', []);
+  const [, setAuthenticated] = useLocalStorage('tailor-track-session', false);
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const handleLogout = () => {
+    setAuthenticated(false);
+    router.replace('/login');
+  };
 
   const filteredCustomers = useMemo(() => {
     if (!customers) return [];
@@ -56,11 +64,16 @@ export default function DashboardPage() {
             <h1 className="text-3xl lg:text-4xl font-headline font-bold">Customer Dashboard</h1>
             <p className="text-muted-foreground mt-1">Search, view, and manage your customers.</p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/new">
-            <PlusCircle className="mr-2 h-4 w-4" /> Add New Customer
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button asChild>
+            <Link href="/dashboard/new">
+              <PlusCircle className="mr-2 h-4 w-4" /> Add New Customer
+            </Link>
+          </Button>
+          <Button variant="outline" onClick={handleLogout}>
+            <LogOut className="mr-2 h-4 w-4" /> Logout
+          </Button>
+        </div>
       </div>
 
       <Card>

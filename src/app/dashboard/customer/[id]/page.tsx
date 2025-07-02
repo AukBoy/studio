@@ -6,7 +6,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, FileText, Phone, Calendar, Trash2, Edit, PlusCircle, Briefcase, DollarSign, Hand, CalendarCheck, CheckCircle, ChevronDown } from 'lucide-react';
+import { User, FileText, Phone, Calendar, Trash2, Edit, PlusCircle, Briefcase, DollarSign, Hand, CalendarCheck, CheckCircle, ChevronDown, Home, ArrowLeft } from 'lucide-react';
 import { StyleRecommender } from '@/components/style-recommender';
 import {
   AlertDialog,
@@ -173,6 +173,10 @@ export default function CustomerDetailPage() {
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
+      <div className="flex gap-2">
+        <Button variant="outline" onClick={() => router.back()}><ArrowLeft className="mr-2 h-4 w-4" /> Back</Button>
+        <Button variant="outline" onClick={() => router.push('/dashboard')}><Home className="mr-2 h-4 w-4" /> Home</Button>
+      </div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex items-center gap-4">
           <div className="p-3 bg-primary/10 rounded-full text-primary">
